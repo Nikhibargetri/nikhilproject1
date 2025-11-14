@@ -1,54 +1,73 @@
-/* Basic reset for default margins/padding */
+/* -------------------------------------------------------
+   BASIC RESET
+-------------------------------------------------------- */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-/* Body: center the app and set background color */
+/* -------------------------------------------------------
+   BODY STYLING
+-------------------------------------------------------- */
 body {
-    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
-        sans-serif;
-    background: #f4f5fb;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    background: linear-gradient(135deg, #e8ecff, #f4f5fb);
     color: #222;
     min-height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
+
+    /* Soft fade animation on page load */
+    animation: fadeIn 0.6s ease-out;
 }
 
-/* Wrapper to limit max width */
+/* Wrapper */
 .app-wrapper {
     width: 100%;
     padding: 1rem;
 }
 
-/* Main card with shadow */
+/* -------------------------------------------------------
+   MAIN APP CARD
+-------------------------------------------------------- */
 .app-card {
     max-width: 700px;
     margin: 0 auto;
     background: #ffffff;
-    border-radius: 12px;
-    padding: 1.5rem 1.75rem 2rem;
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+    border-radius: 16px;
+    padding: 1.8rem 2rem;
+    box-shadow: 0 18px 35px rgba(0, 0, 0, 0.12);
+
+    /* Smooth entrance animation */
+    animation: slideUp 0.7s ease-out;
 }
 
-/* Header styles */
+/* HEADER */
 .app-header h1 {
-    font-size: 1.8rem;
-    margin-bottom: 0.25rem;
+    font-size: 1.9rem;
+    margin-bottom: 0.3rem;
+    font-weight: 700;
+    background: linear-gradient(90deg, #4c6fff, #7b92ff);
+    -webkit-background-clip: text;
+    color: transparent;
+    animation: fadeIn 1s ease-in;
 }
 
 .subtitle {
     font-size: 0.95rem;
     color: #555;
+    margin-bottom: 0.4rem;
 }
 
-/* Stats section (Total / Completed) */
+/* -------------------------------------------------------
+   STATS BOXES
+-------------------------------------------------------- */
 .stats-section {
     display: flex;
     gap: 1rem;
-    margin-top: 1.2rem;
+    margin-top: 1.3rem;
     margin-bottom: 1.4rem;
     flex-wrap: wrap;
 }
@@ -56,178 +75,232 @@ body {
 .stat-box {
     flex: 1;
     min-width: 140px;
-    background: #f8f9ff;
-    border-radius: 8px;
-    padding: 0.75rem 0.9rem;
+    background: #f0f2ff;
+    border-radius: 10px;
+    padding: 0.8rem 0.9rem;
     display: flex;
     align-items: center;
     justify-content: space-between;
+
+    /* Soft glow on hover */
+    transition: box-shadow 0.3s ease;
+}
+.stat-box:hover {
+    box-shadow: 0 0 12px rgba(76, 111, 255, 0.3);
 }
 
-.stat-label {
-    font-size: 0.9rem;
-    color: #555;
-}
-
-.stat-value {
-    font-weight: 600;
-    font-size: 1.1rem;
-}
-
-/* Form section styles */
+/* -------------------------------------------------------
+   FORM SECTION
+-------------------------------------------------------- */
 .form-section {
     border-top: 1px solid #eee;
     padding-top: 1.2rem;
     margin-top: 0.4rem;
     display: flex;
     flex-direction: column;
-    gap: 0.6rem;
+    gap: 0.7rem;
 }
 
 .form-label {
     font-size: 0.9rem;
-    font-weight: 500;
+    font-weight: 600;
+    color: #444;
 }
 
 .text-input,
 .select-input {
     width: 100%;
-    padding: 0.55rem 0.6rem;
-    border-radius: 6px;
+    padding: 0.6rem 0.7rem;
+    border-radius: 8px;
     border: 1px solid #ccc;
     font-size: 0.95rem;
+    transition: border 0.25s ease, box-shadow 0.25s ease, transform 0.15s ease;
 }
 
+/* Focus Highlight */
 .text-input:focus,
 .select-input:focus {
     outline: none;
     border-color: #4c6fff;
-    box-shadow: 0 0 0 1px rgba(76, 111, 255, 0.25);
+    box-shadow: 0 0 6px rgba(76, 111, 255, 0.4);
+    transform: scale(1.02);
 }
 
-/* Main button */
+/* -------------------------------------------------------
+   MAIN BUTTON
+-------------------------------------------------------- */
 .primary-btn {
-    margin-top: 0.4rem;
-    padding: 0.6rem 0.8rem;
-    border-radius: 6px;
+    margin-top: 0.5rem;
+    padding: 0.75rem;
+    border-radius: 10px;
     border: none;
-    font-size: 0.95rem;
+    font-size: 1rem;
     font-weight: 600;
     cursor: pointer;
-    background: #4c6fff;
+    background: linear-gradient(135deg, #4c6fff, #6c85ff);
     color: #fff;
-    transition: background 0.2s ease, transform 0.1s ease;
+    transition: transform 0.15s ease, box-shadow 0.25s ease, background 0.25s ease;
 }
 
 .primary-btn:hover {
-    background: #3d57cc;
-    transform: translateY(-1px);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 18px rgba(76, 111, 255, 0.4);
 }
 
+.primary-btn:active {
+    transform: scale(0.97);
+}
+
+/* Hint text */
 .helper-text {
-    font-size: 0.8rem;
+    font-size: 0.82rem;
     color: #777;
 }
 
-/* List section */
+/* -------------------------------------------------------
+   LIST SECTION
+-------------------------------------------------------- */
 .list-section {
-    margin-top: 1.6rem;
+    margin-top: 1.7rem;
 }
 
 .section-title {
-    font-size: 1.1rem;
-    margin-bottom: 0.7rem;
+    font-size: 1.15rem;
+    margin-bottom: 0.8rem;
+    font-weight: 600;
 }
 
-/* Goal list and items */
+/* List */
 .goal-list {
     list-style: none;
     display: flex;
     flex-direction: column;
-    gap: 0.6rem;
+    gap: 0.7rem;
 }
 
-/* Single goal item row */
+/* -------------------------------------------------------
+   GOAL ITEM
+-------------------------------------------------------- */
 .goal-item {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 0.6rem 0.7rem;
-    border-radius: 8px;
-    border: 1px solid #eee;
+    padding: 0.7rem 0.8rem;
+    border-radius: 10px;
+    border: 1px solid #e9e9e9;
     background: #fafbff;
+    animation: slideRight 0.5s ease;
+
+    transition: transform 0.20s ease, box-shadow 0.25s ease;
 }
 
-/* Container for title and priority tag */
-.goal-main {
-    display: flex;
-    flex-direction: column;
-    gap: 0.25rem;
+.goal-item:hover {
+    transform: translateX(4px);
+    box-shadow: 0 4px 12px rgba(76, 111, 255, 0.15);
 }
 
-/* Goal title text */
-.goal-title {
-    font-size: 0.95rem;
-}
-
-/* Priority badge */
+/* Priority Tag */
 .goal-tag {
-    display: inline-block;
     font-size: 0.75rem;
-    padding: 0.15rem 0.4rem;
+    padding: 0.18rem 0.45rem;
     border-radius: 999px;
     text-transform: capitalize;
+    font-weight: 500;
+    transition: box-shadow 0.25s ease;
 }
 
-/* Different colors for priority */
+/* PRIORITY COLORS + GLOW */
 .goal-tag--low {
-    background: #e3f7e3;
+    background: #dfffe0;
     color: #1b7a1b;
+}
+.goal-tag--low:hover {
+    box-shadow: 0 0 8px rgba(0, 179, 0, 0.2);
 }
 
 .goal-tag--medium {
-    background: #fff3cc;
-    color: #b38309;
+    background: #fff1c7;
+    color: #9a6c00;
+}
+.goal-tag--medium:hover {
+    box-shadow: 0 0 8px rgba(255, 194, 0, 0.3);
 }
 
 .goal-tag--high {
-    background: #ffe2e2;
+    background: #ffdcdc;
     color: #b32626;
 }
-
-/* Button container on right side of each item */
-.goal-actions {
-    display: flex;
-    gap: 0.4rem;
+.goal-tag--high:hover {
+    box-shadow: 0 0 8px rgba(255, 0, 0, 0.25);
 }
 
-/* Buttons inside each goal row */
+/* Buttons inside goal row */
+.goal-actions {
+    display: flex;
+    gap: 0.5rem;
+}
+
 .goal-btn {
-    border-radius: 6px;
-    padding: 0.35rem 0.55rem;
+    border-radius: 8px;
+    padding: 0.4rem 0.65rem;
     font-size: 0.8rem;
     border: none;
     cursor: pointer;
+    transition: transform 0.15s ease, box-shadow 0.2s ease;
 }
 
-/* Done button style */
+.goal-btn:active {
+    transform: scale(0.92);
+}
+
+/* DONE */
 .done-btn {
-    background: #e3f3ff;
+    background: #e1f1ff;
     color: #1e5aa8;
 }
+.done-btn:hover {
+    box-shadow: 0 0 10px rgba(30, 90, 168, 0.25);
+}
 
-/* Delete button style */
+/* DELETE */
 .delete-btn {
-    background: #ffe9e9;
+    background: #ffe7e7;
     color: #b32626;
 }
-
-/* When a goal is completed, we will add this class from JS */
-.goal-item.completed .goal-title {
-    text-decoration: line-through;
-    color: #999;
+.delete-btn:hover {
+    box-shadow: 0 0 10px rgba(179, 38, 38, 0.25);
 }
 
+/* Completed state */
 .goal-item.completed {
-    background: #f2f3f7;
+    background: #eef0f7;
+    border-color: #ccc;
+    opacity: 0.85;
+}
+.goal-item.completed .goal-title {
+    text-decoration: line-through;
+    color: #888;
+}
+
+
+/* -------------------------------------------------------
+   ANIMATIONS
+-------------------------------------------------------- */
+
+/* Fade in */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* App card slides up on load */
+@keyframes slideUp {
+    from { transform: translateY(25px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+}
+
+/* Goal items slide from right */
+@keyframes slideRight {
+    from { transform: translateX(20px); opacity: 0; }
+    to { transform: translateX(0); opacity: 1; }
 }
